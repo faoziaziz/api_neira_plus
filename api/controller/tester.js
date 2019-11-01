@@ -56,6 +56,10 @@ exports.testerGet4 = function(req, res, next){
     console.log("Look on the lol"+param1+" "+param2);
 }
 
+exports.testerGetBlob = function(req, res, next){
+    res.send("tester to  blob");
+}
+
 exports.testerGetAndPost = function(req, res, next){
     res.send("from tester get and post");
 }
