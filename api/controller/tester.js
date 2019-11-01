@@ -17,8 +17,7 @@ exports.testerGet3 = function(req, res, next){
     var param2 = req.param('param2');
     var UUID_gen  = uuidv1();
 
-
-   
+    console.log("masuk ke connection");
     /*write to db tester*/
     connection.connnect(function (err){
         console.log("weew");
@@ -32,13 +31,14 @@ exports.testerGet3 = function(req, res, next){
             if (err) throw err;
 
             console.log("Record berhasil ");
+            res.send("param1 : "+param1);
+            console.log("the blob data :"+param2);
         });
 
 
     });
+
     
-    res.send("param1 : "+param1);
-    console.log("the blob data :"+param2);
     
 }
 
