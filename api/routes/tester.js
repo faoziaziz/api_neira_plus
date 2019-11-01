@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
 router.get('/testerget', testerCont.testerGet);
 router.get('/testerget2', testerCont.testerGet2);
 router.get('/testerget3', testerCont.testerGet3);
+router.get('/testerget4', testerCont.testerGet4);
 
 /* Array of post tester. */
 router.post('/testerpost', testerCont.testerPost);

@@ -1,5 +1,4 @@
 
-
 exports.testerGet = function(req, res){
     
     res.send("testing get berhasil");
@@ -17,6 +16,20 @@ exports.testerGet3 = function(req, res, next){
     res.send("param1 : "+param1);
     console.log("the blob data :"+param2);
     
+}
+
+exports.testerGet4 = function(req, res, next){
+    var param1 = req.param('param1');
+    var param2 = req.param('param2');
+    
+    
+    var data = {
+        'status': 200,
+        'values': param1
+    }
+    res.json(data);
+    res.end();
+    console.log("Look on the lol"+param1+" "+param2);
 }
 
 
