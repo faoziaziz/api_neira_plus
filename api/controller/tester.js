@@ -19,7 +19,7 @@ exports.testerGet3 = function(req, res, next){
 
     console.log("masuk ke connection");
     /*write to db tester*/
-    connection.connnect(function (err){
+    connection.connect(function (err){
         console.log("weew");
         var sql = "insert into Tester(UUID, param1, param2) values ()";
         var values = [UUID_gen, param1, param2];
