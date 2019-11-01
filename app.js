@@ -1,3 +1,6 @@
+/*
+  author : Aziz Amerul Faozi
+*/
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -7,17 +10,13 @@ var logger = require('morgan');
 
 var indexRouter = require('./api/routes/index');
 var usersRouter = require('./api/routes/users');
-var testRouter = require('./api/routes/tester')
+var testRouter = require('./api/routes/tester');
+var advRouter = require('./api/routes/adv');
+
 var app = express();
-//var cookieParser = require('cookie-parser');
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 app.use(logger('dev'));
-//app.use(express.json());
-//app.use(express.urlencoded({ extended: false }));
-//app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -25,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/testers', testRouter);
+app.use('/adv', advRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
