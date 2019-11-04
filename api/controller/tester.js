@@ -15,14 +15,15 @@ exports.testerGet2 = function(req, res, next){
 exports.testerGet3 = function(req, res, next){
     var param1 = req.param('param1');
     var param2 = req.param('param2');
+    var param3  = req.param('param3');
     var UUID_gen  = uuidv1();
 
     console.log("masuk ke connection");
     /*write to db tester*/
     connection.connect(function (err){
         console.log("weew");
-        var sql = "insert into Tester(UUID, param1, param2) values (?)";
-        var values = [UUID_gen, param1, param2];
+        var sql = "insert into Tester(UUID, param1, param2, param3) values (?)";
+        var values = [UUID_gen, param1, param2, param3];
 
         console.log(values);
 
