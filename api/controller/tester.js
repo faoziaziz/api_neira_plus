@@ -77,7 +77,7 @@ exports.testerPost3 = function(req, res, next){
     var param1 = req.param('param1');
     var param2 = req.param('param2');
     var param3 = req.param('param3');
-
+    var UUID_gen = uuidv1();
     connection.connect(function (err){
         console.log("weew");
         var sql = "insert into Tester(UUID, param1, param2, param3) values (?)";
