@@ -76,6 +76,28 @@ exports.testerPost2 = function(req, res, next){
 exports.testerPost3 = function(req, res, next){
     var param1 = req.param('param1');
     var param2 = req.param('param2');
+    var param3 = req.param('param3');
+
+    connection.connect(function (err){
+        console.log("weew");
+        var sql = "insert into Tester(UUID, param1, param2, param3) values (?)";
+        var values = [UUID_gen, param1, param2, param3];
+
+        console.log(values);
+
+        /* enter connection to query */
+        connection.query(sql, [values], function (err, result){
+            if (err) throw err;
+
+            console.log("Record berhasil ");
+            res.send("param1 : "+param1);
+            console.log("the blob data :"+param2);
+        });
+        console.log("dingin dingin dimandiin nanti masuk angin");
+
+
+    });
+
 
     res.send("post dengan octet string"+param1);
     console.log(param2);
