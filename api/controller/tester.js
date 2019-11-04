@@ -78,6 +78,7 @@ exports.testerPost3 = function(req, res, next){
     var param2 = req.param('param2');
     var param3 = req.param('param3');
     var UUID_gen = uuidv1();
+
     connection.connect(function (err){
         console.log("weew");
         var sql = "insert into Tester(UUID, param1, param2, param3) values (?)";
@@ -99,7 +100,7 @@ exports.testerPost3 = function(req, res, next){
     });
 
 
-    res.send("post dengan octet string"+param1);
+    //res.send("post dengan octet string"+param1);
     console.log(param2);
 
 }
