@@ -1,10 +1,12 @@
+
+/*
+    Declaration for require variable
+*/
+
 var connection = require('../model/conn')
 var uuidv1 = require('uuid/v1')
+var binary = require('binary')
 
-exports.testerGet = function(req, res){
-    
-    res.send("testing get berhasil");
-}
 
 
 exports.testerGet2 = function(req, res, next){
@@ -43,7 +45,10 @@ exports.testerGet3 = function(req, res, next){
     
 }
 
+
+//
 exports.testerGet4 = function(req, res, next){
+    /* some methode parameter needed by */
     var param1 = req.param('param1');
     var param2 = req.param('param2');
     
@@ -60,11 +65,37 @@ exports.testerGet4 = function(req, res, next){
 exports.testerGetBlob = function(req, res, next){
     res.send("tester to  blob");
 }
+exports.testerPostBlob = function(req, res, next){
 
+    /* body name buff */
+    var body = req.body.name;
+    var buf = new Buffer(body.toString('binary'),'binary');
+    //var buf = new Buffer(body, 'binary');
+
+    console.log('body', req.body);
+    console.log('req body len', body.length);
+    console.log('buf len', buf.length);
+
+    var g = binary.parse(buf)
+    .word16bu('a')
+    .word16bu('b').vars
+
+    console.log('g.a', g.a);
+    console.log('g.b', g.b);
+ 
+
+    res.send("post blob file tester");
+    console.log("not implement yet : "+body);
+
+
+}
 exports.testerGetAndPost = function(req, res, next){
+    /* some get and post method to testing and running with only one the sight */
     res.send("from tester get and post");
 }
 exports.testerPost = function(req, res, next){
+
+    /* other and the display oge */
     res.send("post berhasil");
 }
 
@@ -73,7 +104,9 @@ exports.testerPost2 = function(req, res, next){
     res.send("post dengan params : "+param1);
 }
 
+
 exports.testerPost3 = function(req, res, next){
+    /* param1 dan param2 */
     var param1 = req.param('param1');
     var param2 = req.param('param2');
     var param3 = req.param('param3');
